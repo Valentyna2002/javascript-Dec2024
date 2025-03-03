@@ -54,7 +54,7 @@ document.body.appendChild(mainBlock)
 // =========================
 //     #Kx1xgoKy8
 //     - Є масив
-let coursesAndDurationArray = [
+let coursesAndDurationArray2 = [
     {title: 'JavaScript Complex', monthDuration: 5},
     {title: 'Java Complex', monthDuration: 6},
     {title: 'Python Complex', monthDuration: 6},
@@ -66,7 +66,7 @@ let coursesAndDurationArray = [
 // За допомоги скріпта для кожного елементу масиву зробити <div class='item'> ,  в якому буде <h1 class='heading'>  з title  елементу, та <p class='description'> з monthDuration елементу.
 //     Завдання робити через цикли.
 let mainCoursesDiv = document.createElement('div')
-for (const mainCoursesDivElement of mainCoursesDiv) {
+for (const mainCoursesDivElement of coursesAndDurationArray2) {
     let itemDiv = document.createElement('div')
     itemDiv.classList.add('item')
     let title = document.createElement('h1')
@@ -78,5 +78,5 @@ for (const mainCoursesDivElement of mainCoursesDiv) {
     itemDiv.append(title, description)
     mainCoursesDiv.appendChild(itemDiv)
 }
-document.body.appendChild(mainBlock)
+document.body.appendChild(mainCoursesDiv)
 
