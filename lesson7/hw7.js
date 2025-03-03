@@ -216,3 +216,4 @@ numbers.myForEach(function(element) {
     console.log(element + 5); // Додаємо 5 до кожного елемента
 });
 Array.prototype.myFilter = function(callback) {}
+
