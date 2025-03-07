@@ -80,3 +80,138 @@ for (const mainCoursesDivElement of coursesAndDurationArray2) {
 }
 document.body.appendChild(mainCoursesDiv)
 
+// Цикл в циклі
+// - Є масив coursesArray котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)
+//
+// Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей, для властивості modules зробити список з елементами
+// Приклад структири знаходиться у файлі example.png який лежить в папці з поточним фйлом
+// ------------------
+//
+//
+//
+
+
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+
+for (const coursesArrayElement of coursesArray) {
+    let itemBlock = document.createElement('div')
+    itemBlock.classList.add('block')
+    let title = document.createElement('div')
+    title.innerText = `title: ${coursesArrayElement.title}`
+    let duration = document.createElement('div')
+    duration.classList.add('duration')
+    duration.innerHTML = `<p>monthDuration: ${coursesArrayElement.monthDuration}</p><p>hourDuration: ${coursesArrayElement.hourDuration}</p>`
+let list = document.createElement('ul')
+    for (const module of coursesArrayElement.modules) {
+        let listElements = document.createElement('li')
+        listElements.innerText = module
+        list.appendChild(listElements)
+    }
+    itemBlock.append(title, duration, list)
+    console.log(itemBlock)
+    document.body.appendChild(itemBlock)
+}
+
+// створити три блоки з різним текстовим контентом. зробити так, щоб всі блоки мали висоту найбільшого з них.
+let createBlock = document.createElement("div")
+createBlock.classList.add('threeBlock')
+createBlock.innerText = 'Hello'
+let createBlock2 = document.createElement("div")
+createBlock2.classList.add('threeBlock')
+createBlock2.innerText = 'hello world'
+let createBlock3 = document.createElement("div")
+createBlock3.classList.add('threeBlock')
+createBlock3.innerText = 'hello world my name is Valentyna'
+document.body.append(createBlock, createBlock2, createBlock3)
+
+let getBlocks = document.querySelectorAll('.threeBlock')
+let maxHeight = [...getBlocks].reduce((acc, el) =>
+    Math.max(acc, el.innerText.length), 0);
+getBlocks.forEach(block => {
+    block.style.height = maxHeight + "px";
+});
+
+// mikkit.com task
+let musicList = document.querySelectorAll('.item-grid__item')
+musicList.forEach(music => {
+    let musicTitle = music.querySelector('.item-grid-card__title').innerText
+    let musicAuthor = music.querySelector('.item-grid-music-preview__author').innerText
+    let musicAudio = music.querySelector('[data-test-id="audio-player"]').getAttribute('data-audio-player-preview-url-value')
+
+    let newMusic = {
+        title: musicTitle,
+        autor: musicAuthor,
+        audio: musicAudio }
+
+    for(key in newMusic){ console.log(`${key}: ${newMusic[key]}`) }
+})
+
+
