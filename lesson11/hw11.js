@@ -102,3 +102,7 @@ fetch('https://dummyjson.com/recipes?limit=50')
 
 
     });
+for (let i = 0; i < recipesDiv.length; i++) {
+    const recipesDivElement = recipesDiv[i];
+    
+}
